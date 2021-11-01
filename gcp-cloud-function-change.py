@@ -27,12 +27,12 @@ def hello_world(request):
     coin_lookup = {25: "quarters", 10: "dimes", 5: "nickels", 1: "pennies"}
     coin = coins.pop()
     num, rem = divmod(int(amount * 100), coin)
-    res.append({num: coin_lookup[coin]})
+    res.append({coin_lookup[coin]: num})
     while rem > 0:
         coin = coins.pop()
         num, rem = divmod(rem, coin)
         if num:
             if coin in coin_lookup:
-                res.append({num: coin_lookup[coin]})
+                res.append({coin_lookup[coin]: num})
     result = f"This is the res: {res}"
     return result
